@@ -32,7 +32,7 @@ export function Header() {
             {/* TOP RIGHT: MENU TRIGGER (HAMBURGER REPLACEMENT) */}
             <div className="fixed top-8 right-8 z-50 mix-blend-difference">
                 <Button variant="ghost" className="text-white font-mono text-xs uppercase tracking-widest border border-white/20 hover:bg-white hover:text-black hover:border-white transition-colors h-10 px-6 rounded-none">
-                    <a href="#contacts">Меню / Связь</a>
+                    <a href="#contacts">КОНТАКТЫ</a>
                 </Button>
             </div>
 

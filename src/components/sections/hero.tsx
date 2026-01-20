@@ -61,11 +61,8 @@ export function Hero() {
                         </div>
                     </div>
 
-                    {/* RIGHT: DECORATIVE DATA */}
-                    <div className="col-span-2 hidden md:flex flex-col justify-center items-end text-right font-mono text-[10px] text-aurora-orange/60 gap-4">
-                        <p>ШИРОТА: 59.9343</p>
-                        <p>ДОЛГОТА: 30.3351</p>
-                        <p>НАГРУЗКА: 100%</p>
+                    {/* RIGHT: DECORATIVE DATA (REMOVED) */}
+                    <div className="col-span-2 hidden md:flex flex-col justify-center items-end text-right">
                         <div className="h-32 w-[1px] bg-aurora-orange/20"></div>
                     </div>
                 </div>
@@ -86,7 +83,7 @@ export function Hero() {
                         <Button
                             className="w-full md:w-auto bg-aurora-orange text-black font-display font-bold text-2xl uppercase tracking-widest px-12 py-8 rounded-none border-2 border-transparent hover:bg-black hover:text-aurora-orange hover:border-aurora-orange transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none translate-x-0 hover:translate-x-[4px] hover:translate-y-[4px]"
                         >
-                            <span className="mr-4">Отправить проект</span>
+                            <span className="mr-4">РАССЧИТАТЬ ПРОЕКТ</span>
                             <ArrowDown className="text-current rotate-[-135deg]" size={24} />
                         </Button>
                     </div>
