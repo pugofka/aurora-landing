@@ -1,76 +1,97 @@
 'use client';
 
-
-import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { Section } from '@/components/ui/section';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Play } from 'lucide-react';
 import Image from 'next/image';
 
 export function Hero() {
     return (
-        <Section id="hero" className="h-screen min-h-[800px] flex flex-col pt-32 pb-12 overflow-hidden relative">
+        <Section id="hero" className="h-screen min-h-[800px] relative overflow-hidden bg-aurora-black text-white">
 
-            {/* Background Layer - Fullscreen Image with specific blending */}
-            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+            {/* 1. THE MONOLITH BACKGROUND (Video/Image) */}
+            <div className="absolute inset-0 z-0">
                 <Image
                     src="/img/hero-bg.png"
-                    alt="Construction Site"
+                    alt="Industrial Void"
                     fill
-                    className="object-cover opacity-50"
+                    className="object-cover opacity-40 grayscale"
                     priority
                 />
-                {/* Complex Gradient Mask to reveal text */}
-                <div className="absolute inset-0 bg-gradient-to-b from-aurora-black via-transparent to-aurora-black/90" />
-                <div className="absolute inset-0 bg-gradient-to-r from-aurora-black/50 via-transparent to-aurora-black/50" />
-
-                {/* Global Grain for this section */}
-                <div className="absolute inset-0 opacity-20 bg-[url('/img/noise-texture.png')] mix-blend-overlay" />
+                <div className="absolute inset-0 bg-aurora-black/60 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-[url('/img/noise-texture.png')] opacity-30 mix-blend-overlay" />
             </div>
 
-            <Container className="relative z-10 flex-1 flex flex-col justify-between">
+            {/* 2. MASSIVE TYPOGRAPHY MASK */}
+            <div className="absolute inset-0 z-10 flex items-center justify-center p-0 m-0 overflow-hidden pointer-events-none mix-blend-overlay">
+                <h1 className="font-display font-bold text-[25vw] leading-none text-white opacity-10 tracking-tighter select-none whitespace-nowrap">
+                    AVRORA
+                </h1>
+            </div>
 
-                {/* TOP BAR INFO - Heavy Border */}
-                <div className="flex justify-between items-start border-t-4 border-aurora-orange pt-8">
-                    <div className="hidden md:block">
-                        <p className="font-mono text-sm text-aurora-orange font-bold uppercase tracking-widest mb-2">Завод</p>
-                        <p className="font-display font-bold text-3xl text-white tracking-tight">МЕТАЛЛОКОНСТРУКЦИЙ</p>
+            {/* 3. FOREGROUND CONTENT (ANTI-LAYOUT) */}
+            <div className="relative z-20 h-full w-full p-4 md:p-8 flex flex-col justify-between">
+
+                {/* Spacer for Top Nav */}
+                <div className="h-24"></div>
+
+                {/* Main Content - Scattered */}
+                <div className="grid grid-cols-12 gap-4 h-full">
+
+                    {/* LEFT: VERTICAL TEXT */}
+                    <div className="col-span-2 hidden md:flex items-end pb-24">
+                        <div className="writing-vertical-rl rotate-180 font-display font-medium text-4xl md:text-6xl text-white/20 whitespace-nowrap">
+                            HEAVY INDUSTRY SOLUTIONS
+                        </div>
                     </div>
-                    <div className="text-right">
-                        <p className="font-mono text-xs text-autora-white/50 uppercase tracking-widest">Est. 2008</p>
+
+                    {/* CENTER: THE STATEMENT */}
+                    <div className="col-span-12 md:col-span-8 flex flex-col justify-center items-center text-center">
+                        <h2 className="font-display font-bold text-6xl md:text-8xl w-full uppercase leading-[0.85] tracking-tight mix-blend-difference mb-8">
+                            ЗАВОД <br />
+                            <span className="text-aurora-orange">МЕТАЛЛО</span><br />
+                            КОНСТРУКЦИЙ
+                        </h2>
+
+                        <div className="flex items-center gap-6 mt-8">
+                            <span className="h-[2px] w-12 bg-aurora-orange"></span>
+                            <p className="font-mono text-sm md:text-base text-gray-400 max-w-md text-left">
+                                Производим несущие конструкции любой сложности для промышленных объектов РФ и СНГ.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* RIGHT: DECORATIVE DATA */}
+                    <div className="col-span-2 hidden md:flex flex-col justify-center items-end text-right font-mono text-[10px] text-aurora-orange/60 gap-4">
+                        <p>COORD_X: 59.9343</p>
+                        <p>COORD_Y: 30.3351</p>
+                        <p>LOAD_ZN: 100%</p>
+                        <div className="h-32 w-[1px] bg-aurora-orange/20"></div>
                     </div>
                 </div>
 
-                {/* CENTER HERO TEXT - MASSIVE & HEAVY */}
-                <div className="relative flex flex-col items-start justify-center flex-1 my-12">
-                    <h1 className="font-display font-bold text-[13vw] md:text-[9rem] leading-[0.85] text-white uppercase text-left tracking-tighter mix-blend-overlay opacity-90">
-                        АВРОРА
-                    </h1>
+                {/* 4. BOTTOM INTERFACE (HUD) */}
+                <div className="flex flex-col md:flex-row justify-between items-end gap-6 pt-12">
 
-                    <div className="flex flex-col md:flex-row gap-12 mt-12 items-start border-l-4 border-white/20 pl-8">
-                        <p className="font-mono text-base md:text-xl text-aurora-white/90 max-w-xl leading-relaxed">
-                            Металлоконструкции, которые приносят бизнесу прибыль.
-                            <br />
-                            <span className="text-aurora-orange font-bold mt-2 block uppercase text-sm tracking-widest">
-                                Проектирование / Производство / Монтаж
-                            </span>
-                        </p>
+                    {/* SCROLL TRIGGER */}
+                    <div className="hidden md:flex flex-col items-center gap-2 group cursor-pointer">
+                        <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest group-hover:text-aurora-orange transition-colors">Scroll_Down</span>
+                        <div className="w-[1px] h-12 bg-white/20 group-hover:bg-aurora-orange transition-colors relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-full h-1/2 bg-aurora-orange animate-slide-down" />
+                        </div>
                     </div>
-                </div>
 
-                {/* BOTTOM CONTROLS */}
-                <div className="flex flex-col md:flex-row justify-between items-end gap-8 text-white w-full">
+                    {/* THE LEVER (CTA) */}
                     <div className="w-full md:w-auto">
-                        <Button variant="primary" size="lg" className="w-full md:w-auto rounded-none px-16 h-20 text-xl font-bold tracking-widest bg-aurora-orange text-black hover:bg-white hover:text-black border-2 border-transparent hover:border-white transition-all">
-                            РАССЧИТАТЬ СМЕТУ
+                        <Button
+                            className="w-full md:w-auto bg-aurora-orange text-black font-display font-bold text-2xl uppercase tracking-widest px-12 py-8 rounded-none border-2 border-transparent hover:bg-black hover:text-aurora-orange hover:border-aurora-orange transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none translate-x-0 hover:translate-x-[4px] hover:translate-y-[4px]"
+                        >
+                            <span className="mr-4">Отправить проект</span>
+                            <ArrowDown className="text-current rotate-[-135deg]" size={24} />
                         </Button>
                     </div>
-
-                    <div className="flex flex-col items-center gap-4 text-aurora-white/40">
-                        <ArrowDown className="animate-bounce" />
-                    </div>
                 </div>
-            </Container>
+            </div>
         </Section>
     );
 }

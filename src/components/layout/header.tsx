@@ -15,51 +15,56 @@ export function Header() {
     };
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-aurora-black/80 backdrop-blur-md border-b border-white/10">
-            <Container className="flex items-center justify-between py-4">
-                {/* LOGO */}
-                <Link href="/" className="relative z-50 group mix-blend-difference">
-                    <div className="flex flex-col">
-                        <span className="font-display font-bold text-2xl tracking-tighter text-white group-hover:text-aurora-orange transition-colors">
-                            ЗМК АВРОРА
-                        </span>
-                        <span className="font-mono text-[10px] text-white/60 uppercase tracking-widest group-hover:text-aurora-orange/60 transition-colors">
-                            Санкт-Петербург
-                        </span>
-                    </div>
+    return (
+        <>
+            {/* TOP LEFT: LOGO */}
+            <div className="fixed top-8 left-8 z-50 mix-blend-difference">
+                <Link href="/" className="group block">
+                    <span className="font-display font-bold text-3xl tracking-tighter text-white block leading-none">
+                        АВРОРА
+                    </span>
+                    <span className="font-mono text-[10px] text-aurora-orange uppercase tracking-widest block mt-1">
+                        ZMK_SYSTEM_V6
+                    </span>
                 </Link>
+            </div>
 
-                {/* DESKTOP NAV */}
-                <nav className="hidden md:flex items-center gap-8">
-                    {['О заводе', 'Процесс', 'Проекты', 'Контакты'].map((item, i) => {
-                        const href = ['#about', '#process', '#portfolio', '#contacts'][i];
-                        return (
-                            <a
-                                key={item}
-                                href={href}
-                                onClick={(e) => scrollToSection(e, href)}
-                                className="font-mono text-xs uppercase tracking-widest text-aurora-white/70 hover:text-aurora-orange transition-colors"
-                            >
-                                {item}
-                            </a>
-                        );
-                    })}
-                </nav>
-
-                {/* CTA */}
-                <Button variant="outline" size="sm" className="hidden md:flex hover:bg-aurora-orange hover:text-black hover:border-aurora-orange transition-colors">
-                    <a href="#contacts" onClick={(e) => scrollToSection(e, '#contacts')}>
-                        Рассчитать проект
-                    </a>
+            {/* TOP RIGHT: MENU TRIGGER (HAMBURGER REPLACEMENT) */}
+            <div className="fixed top-8 right-8 z-50 mix-blend-difference">
+                <Button variant="ghost" className="text-white font-mono text-xs uppercase tracking-widest border border-white/20 hover:bg-white hover:text-black hover:border-white transition-colors h-10 px-6 rounded-none">
+                    <a href="#contacts">Меню / Связь</a>
                 </Button>
+            </div>
 
-                {/* MOBILE BURGER (Simple) */}
-                <div className="md:hidden">
-                    <Button variant="ghost" size="sm" className="text-white">
-                        <a href="#contacts">Меню</a>
-                    </Button>
+            {/* BOTTOM LEFT: STATUS INDICATORS */}
+            <div className="fixed bottom-8 left-8 z-50 hidden md:flex flex-col gap-2 mix-blend-difference pointer-events-none">
+                <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-aurora-orange animate-pulse" />
+                    <span className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
+                        ПРОИЗВОДСТВО: АКТИВНО
+                    </span>
                 </div>
-            </Container>
-        </header>
+                <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest">
+                    САНКТ-ПЕТЕРБУРГ / 2025
+                </span>
+            </div>
+
+            {/* RIGHT SIDE: VERTICAL NAV (OPTIONAL OR HUD) */}
+            <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-8 mix-blend-difference">
+                {['О заводе', 'Процесс', 'Проекты'].map((item, i) => {
+                    const href = ['#about', '#process', '#portfolio'][i];
+                    return (
+                        <a
+                            key={item}
+                            href={href}
+                            onClick={(e) => scrollToSection(e, href)}
+                            className="writing-vertical-rl font-mono text-xs text-white/40 hover:text-aurora-orange uppercase tracking-widest transition-colors rotate-180"
+                        >
+                            {item}
+                        </a>
+                    )
+                })}
+            </div>
+        </>
     );
 }
