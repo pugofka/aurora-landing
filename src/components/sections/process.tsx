@@ -32,27 +32,27 @@ export function Process() {
                     </div>
                 </div>
 
-                {/* MODULAR GRID V5 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* HEAVY INDUSTRIAL GRAD (V5.5) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t-2 border-l-2 border-aurora-black">
                     {steps.map((step) => (
-                        <div key={step.id} className="bg-white p-8 border border-gray-200 hover:border-aurora-orange transition-colors duration-300 group flex flex-col justify-between min-h-[280px]">
+                        <div key={step.id} className="bg-transparent p-8 border-b-2 border-r-2 border-aurora-black hover:bg-white hover:text-black transition-colors duration-300 group flex flex-col justify-between min-h-[320px]">
 
                             {/* TOP: Icon & Number */}
                             <div className="flex justify-between items-start mb-8">
-                                <div className="p-3 bg-gray-50 rounded-sm group-hover:bg-aurora-orange group-hover:text-white transition-colors duration-300 text-aurora-black">
-                                    <step.icon size={24} strokeWidth={1.5} />
-                                </div>
-                                <span className="font-mono text-xs text-gray-300 group-hover:text-aurora-orange/60 transition-colors">
-                                    /{step.id}
+                                <span className="font-display text-4xl text-aurora-black/10 group-hover:text-aurora-orange transition-colors duration-300">
+                                    {step.id}
                                 </span>
+                                <div className="text-aurora-black group-hover:text-aurora-orange transition-colors">
+                                    <step.icon size={32} strokeWidth={1.5} />
+                                </div>
                             </div>
 
                             {/* BOTTOM: Text */}
                             <div>
-                                <h3 className="font-display font-medium text-2xl uppercase text-aurora-black mb-3">
+                                <h3 className="font-display font-medium text-3xl uppercase text-aurora-black mb-4">
                                     {step.title}
                                 </h3>
-                                <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                <p className="font-mono text-sm text-aurora-black/70 leading-relaxed max-w-xs">
                                     {step.desc}
                                 </p>
                             </div>

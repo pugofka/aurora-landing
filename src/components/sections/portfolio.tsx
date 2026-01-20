@@ -39,30 +39,31 @@ export function Portfolio() {
                     </div>
                 </div>
 
-                {/* Industrial Slider (Horizontal Scroll) */}
+                {/* Industrial Slider (Horizontal Scroll) - Heavy V5.5 */}
                 <div className="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                     {projects.map((project) => (
-                        <div key={project.id} className="min-w-[85vw] md:min-w-[45vw] lg:min-w-[30vw] snap-center group">
-                            {/* Image Container */}
-                            <div className="relative aspect-[4/3] mb-6 overflow-hidden bg-white/5 border border-white/10">
+                        <div key={project.id} className="min-w-[85vw] md:min-w-[45vw] lg:min-w-[30vw] snap-center group select-none">
+                            {/* Image Container - Heavy Border */}
+                            <div className="relative aspect-[4/3] mb-6 overflow-hidden bg-aurora-gray border-2 border-white/10 group-hover:border-aurora-orange/50 transition-colors duration-500">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                                {/* Industrial Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60" />
                             </div>
 
                             {/* Content */}
-                            <div className="pr-4">
-                                <span className="block font-mono text-xs text-aurora-orange/60 mb-2">
-                                    /{project.id}
+                            <div className="pr-4 border-l-2 border-white/10 pl-6 group-hover:border-aurora-orange transition-colors duration-300">
+                                <span className="block font-display text-4xl text-white/20 mb-2 group-hover:text-aurora-orange transition-colors">
+                                    {project.id}
                                 </span>
-                                <h3 className="font-display text-2xl uppercase mb-3 text-white group-hover:text-aurora-orange transition-colors">
+                                <h3 className="font-display text-2xl uppercase mb-3 text-white">
                                     {project.title}
                                 </h3>
-                                <p className="font-mono text-sm text-aurora-white/60 leading-relaxed">
+                                <p className="font-mono text-sm text-aurora-white/50 leading-relaxed max-w-sm">
                                     {project.desc}
                                 </p>
                             </div>
