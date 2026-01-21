@@ -25,56 +25,66 @@ export function About() {
     const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
     return (
-        <Section id="about" className="py-40 bg-aurora-white text-aurora-black relative overflow-hidden">
-            <Container ref={containerRef} className="relative">
-
+        <Section id="about" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
+            <div className="absolute inset-0 pattern-grid-dark opacity-50" />
+            
+            <Container ref={containerRef} className="relative z-10">
                 {/* 1. EDITORIAL HEADLINE */}
-                <div className="relative z-10 mb-24 mix-blend-difference text-white">
-                    <span className="block font-mono text-xs uppercase tracking-widest mb-4">О компании</span>
-                    <h2 className="font-display font-medium text-[3rem] sm:text-[5rem] leading-[1.0] uppercase max-w-5xl">
-                        Превращаем металл <br />
-                        <span className="text-aurora-orange">в инструмент роста.</span>
+                <div className="mb-24">
+                    <p className="font-mono text-xs uppercase tracking-[0.3em] text-aurora-orange mb-6 flex items-center gap-4">
+                        <span className="w-8 h-[1px] bg-aurora-orange"></span>
+                        / О компании
+                    </p>
+                    <h2 className="font-display font-medium text-[3.5rem] md:text-[6rem] leading-[0.9] uppercase max-w-4xl tracking-tight">
+                        Архитекторы <br />
+                        <span className="text-white/20">индустриального</span> <br />
+                        <span className="text-aurora-orange">роста.</span>
                     </h2>
                 </div>
 
-                {/* 2. IMAGE & CONTENT GRID */}
-                <div className="relative grid grid-cols-12 gap-8">
+                {/* 2. CONTENT GRID */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    {/* Left: Statement */}
+                    <div className="lg:col-span-5">
+                        <p className="text-xl md:text-2xl font-light leading-relaxed text-white/80 border-l-2 border-aurora-orange pl-8">
+                            Мы проектируем и производим несущие металлоконструкции, которые становятся фундаментом для масштабных строительных проектов. Наш подход — это сочетание инженерной точности и понимания бизнес-процессов заказчика.
+                        </p>
+                    </div>
 
-                    {/* Parallax Image */}
-                    <motion.div style={{ y }} className="col-span-12 md:col-span-5 relative h-[600px] md:h-[800px] grayscale hover:grayscale-0 transition-all duration-700">
-                        <Image
-                            src="/img/welding-bg.png"
-                            alt="Сварка металлоконструкций"
-                            fill
-                            className="object-cover"
-                        />
-                        {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-aurora-black/60 to-transparent" />
-                    </motion.div>
-
-                    {/* Text Content */}
-                    <motion.div style={{ y: y2 }} className="col-span-12 md:col-span-6 md:col-start-7 pt-12 md:pt-32 relative z-20">
-                        <div className="bg-aurora-black text-aurora-white p-8 md:p-12 md:-ml-24 shadow-2xl border-l-4 border-aurora-orange">
-                            <p className="text-lg md:text-xl font-light leading-relaxed mb-12 opactiy-90">
-                                Наши металлоконструкции и металлоизделия создаются не просто «по чертежу», а под ключевые задачи заказчика: увеличить скорость строительства, снизить издержки, повысить надёжность объектов и дать долгий срок службы без лишних ремонтов.
-                            </p>
-
-                            <div className="space-y-8">
-                                <div className="border-t border-aurora-white/20 pt-4">
-                                    <h4 className="font-display text-xl uppercase text-aurora-orange mb-2">Полный цикл</h4>
-                                    <p className="font-mono text-sm text-aurora-white/60">От разработки и расчётов до изготовления, покраски и доставки — всё в одном месте. Быстрее, проще, дешевле.</p>
-                                </div>
-                                <div className="border-t border-aurora-white/20 pt-4">
-                                    <h4 className="font-display text-xl uppercase text-aurora-orange mb-2">Максимальная точность</h4>
-                                    <p className="font-mono text-sm text-aurora-white/60">Современное оборудование и строгий контроль качества. Идеальная геометрия, быстрая сборка без ошибок.</p>
-                                </div>
-                                <div className="border-t border-aurora-white/20 pt-4">
-                                    <h4 className="font-display text-xl uppercase text-aurora-orange mb-2">Сроки — закон</h4>
-                                    <p className="font-mono text-sm text-aurora-white/60">Задержка — это потеря денег. Мы работаем по чёткому графику и всегда выполняем обязательства.</p>
+                    {/* Right: Steps/Benefits in Pugofka Style */}
+                    <div className="lg:col-span-6 lg:col-start-7 space-y-16">
+                        {[
+                            {
+                                id: '01',
+                                title: 'Полный производственный цикл',
+                                desc: 'От разработки КМД и статических расчетов до антикоррозийной защиты и доставки на объект.'
+                            },
+                            {
+                                id: '02',
+                                title: 'Цифровой контроль качества',
+                                desc: 'Используем BIM-моделирование и автоматизированные линии резки для достижения идеальной геометрии.'
+                            },
+                            {
+                                id: '03',
+                                title: 'Бескомпромиссные сроки',
+                                desc: 'Мы понимаем стоимость простоя. Каждый этап производства синхронизирован с графиком строительства.'
+                            }
+                        ].map((item) => (
+                            <div key={item.id} className="group">
+                                <div className="flex items-baseline gap-6 border-b border-white/10 pb-8 group-hover:border-aurora-orange transition-colors duration-500">
+                                    <span className="font-mono text-xl text-aurora-orange">/{item.id}</span>
+                                    <div>
+                                        <h4 className="font-display text-2xl uppercase mb-4 text-white group-hover:text-aurora-orange transition-colors duration-500">
+                                            {item.title}
+                                        </h4>
+                                        <p className="font-mono text-sm text-white/40 leading-relaxed max-w-md">
+                                            {item.desc}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        ))}
+                    </div>
                 </div>
             </Container>
         </Section>

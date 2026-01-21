@@ -8,81 +8,87 @@ import Image from 'next/image';
 
 export function Contacts() {
     return (
-        <Section id="contacts" className="bg-aurora-concrete text-aurora-black pt-24 pb-12">
-            <Container>
+        <Section id="contacts" className="bg-aurora-gray text-aurora-white pt-32 pb-20 relative overflow-hidden grain-texture">
+            <div className="absolute inset-0 pattern-grid-dark opacity-40" />
+            
+            <Container className="relative z-10">
                 {/* Header */}
-                <div className="mb-16">
-                    <p className="font-mono text-xs uppercase tracking-widest text-aurora-orange mb-2">/ Контакты</p>
-                    <h2 className="font-display text-4xl md:text-5xl uppercase text-aurora-black">
-                        Рассчитать <br /> Проект
+                <div className="mb-24">
+                    <p className="font-mono text-xs uppercase tracking-[0.3em] text-aurora-orange mb-6 flex items-center gap-4">
+                        <span className="w-8 h-[1px] bg-aurora-orange"></span>
+                        / Контакты
+                    </p>
+                    <h2 className="font-display text-[3.5rem] md:text-[6rem] uppercase text-white leading-[0.9] tracking-tight">
+                        Обсудить <br /> <span className="text-white/10">Ваш Проект</span>
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-
-                    {/* LEFT: FORM (Clean White Card) */}
-                    <div className="lg:col-span-7 bg-white p-8 md:p-12 shadow-sm border border-gray-200">
-                        <form className="space-y-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div>
-                                    <label className="block font-mono text-xs uppercase tracking-widest mb-3 text-gray-500">Ваше имя</label>
-                                    <input type="text" className="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:border-aurora-orange transition-colors font-display text-lg uppercase" placeholder="Иван Иванов" />
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                    {/* LEFT: FORM (Clean Dark Card Style) */}
+                    <div className="lg:col-span-7 bg-black/40 p-10 md:p-16 border border-white/5 backdrop-blur-sm shadow-2xl">
+                        <form className="space-y-12">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                <div className="group">
+                                    <label className="block font-mono text-[10px] uppercase tracking-[0.3em] mb-4 text-white group-focus-within:text-aurora-orange transition-colors">01_Ваше имя</label>
+                                    <input type="text" className="w-full bg-transparent border-b border-white/20 p-2 focus:outline-none focus:border-aurora-orange transition-colors font-display text-xl uppercase placeholder:text-white/30 text-white" placeholder="Иван Иванов" />
                                 </div>
-                                <div>
-                                    <label className="block font-mono text-xs uppercase tracking-widest mb-3 text-gray-500">Телефон</label>
-                                    <input type="tel" className="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:border-aurora-orange transition-colors font-display text-lg uppercase" placeholder="+7 (999) 000-00-00" />
+                                <div className="group">
+                                    <label className="block font-mono text-[10px] uppercase tracking-[0.3em] mb-4 text-white group-focus-within:text-aurora-orange transition-colors">02_Телефон</label>
+                                    <input type="tel" className="w-full bg-transparent border-b border-white/20 p-2 focus:outline-none focus:border-aurora-orange transition-colors font-display text-xl uppercase placeholder:text-white/30 text-white" placeholder="+7 (___) ___-__-__" />
                                 </div>
                             </div>
-                            <div>
-                                <label className="block font-mono text-xs uppercase tracking-widest mb-3 text-gray-500">Комментарий</label>
-                                <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 p-4 focus:outline-none focus:border-aurora-orange transition-colors font-mono text-sm" placeholder="Опишите задачу..." />
+                            <div className="group">
+                                <label className="block font-mono text-[10px] uppercase tracking-[0.3em] mb-4 text-white group-focus-within:text-aurora-orange transition-colors">03_Детали проекта</label>
+                                <textarea rows={1} className="w-full bg-transparent border-b border-white/20 p-2 focus:outline-none focus:border-aurora-orange transition-colors font-mono text-sm placeholder:text-white/30 text-white" placeholder="Краткое описание задачи..." />
                             </div>
 
-                            <Button className="w-full md:w-auto px-12 bg-aurora-orange text-white hover:bg-black transition-colors">
-                                Отправить заявку
+                            <Button className="w-full md:w-auto px-16 py-8 bg-aurora-orange text-black font-display font-medium text-lg uppercase tracking-widest hover:bg-white transition-all duration-500 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.05)] hover:shadow-none">
+                                Отправить данные
                             </Button>
                         </form>
                     </div>
 
-                    {/* RIGHT: INFO (Clean Typography) */}
-                    <div className="lg:col-span-5 flex flex-col justify-between">
-                        <div className="space-y-12">
-                            <div>
-                                <p className="font-mono text-xs text-aurora-orange uppercase tracking-widest mb-2">Почта</p>
-                                <a href="mailto:105@td-avrora.ru" className="font-display text-3xl hover:text-aurora-orange transition-colors">
-                                    105@td-avrora.ru
-                                </a>
+                    {/* RIGHT: INFO */}
+                    <div className="lg:col-span-5 pt-4">
+                        <div className="space-y-16">
+                            <div className="group">
+                                <p className="font-mono text-[10px] text-aurora-orange uppercase tracking-[0.4em] mb-4">/ Прямая связь</p>
+                                <div className="space-y-4">
+                                    <a href="mailto:105@td-avrora.ru" className="block font-display text-3xl md:text-4xl hover:text-aurora-orange transition-colors border-b border-white/5 pb-2 text-white">
+                                        105@td-avrora.ru
+                                    </a>
+                                    <a href="tel:89006476606" className="block font-display text-3xl md:text-4xl hover:text-aurora-orange transition-colors text-white">
+                                        8 (900) 647-66-06
+                                    </a>
+                                </div>
                             </div>
 
-                            <div>
-                                <p className="font-mono text-xs text-aurora-orange uppercase tracking-widest mb-2">Телефон</p>
-                                <a href="tel:89006476606" className="font-display text-3xl hover:text-aurora-orange transition-colors">
-                                    8 (900) 647-66-06
-                                </a>
-                            </div>
-
-                            <div className="pt-8 border-t border-gray-200">
-                                <div className="mb-8">
-                                    <strong className="block font-display text-lg uppercase mb-2">Офис</strong>
-                                    <p className="font-mono text-gray-600">Санкт-Петербург, Ул. Губина д.16А, помещ. 68</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-white/5">
+                                <div>
+                                    <p className="font-mono text-[10px] uppercase tracking-widest text-white/40 mb-4">/ Офис</p>
+                                    <p className="font-display text-lg uppercase leading-tight text-white/80">Санкт-Петербург, <br /> Ул. Губина д.16А, <br /> помещ. 68</p>
                                 </div>
                                 <div>
-                                    <strong className="block font-display text-lg uppercase mb-2">Производство</strong>
-                                    <p className="font-mono text-gray-600">Санкт-Петербург, ул. Челябинская 160</p>
+                                    <p className="font-mono text-[10px] uppercase tracking-widest text-white/40 mb-4">/ Завод</p>
+                                    <p className="font-display text-lg uppercase leading-tight text-white/80">Санкт-Петербург, <br /> ул. Челябинская 160</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Footer */}
-                <div className="mt-24 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center text-sm font-mono text-gray-500 uppercase tracking-widest">
-                    <div className="flex gap-6 mb-4 md:mb-0">
+                {/* Bottom Footer Section */}
+                <div className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div className="flex gap-12 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
                         <a href="#" className="hover:text-aurora-orange transition-colors">Telegram</a>
                         <a href="#" className="hover:text-aurora-orange transition-colors">WhatsApp</a>
                         <a href="#" className="hover:text-aurora-orange transition-colors">ВКонтакте</a>
                     </div>
-                    <p>© ЗМК АВРОРА 2008-2025</p>
+                    <div className="text-right">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-white/40">
+                            © 2008-2026 ЗМК АВРОРА // <span className="text-white/60">All rights reserved</span>
+                        </p>
+                    </div>
                 </div>
             </Container>
         </Section>

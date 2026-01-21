@@ -14,24 +14,30 @@ const suppliers = [
 
 export function Suppliers() {
     return (
-        <section className="bg-aurora-white py-12 border-y-4 border-aurora-black overflow-hidden relative">
-            {/* Scanlines Effect */}
-            <div className="absolute inset-0 bg-[url('/scanline.png')] opacity-10 pointer-events-none mix-blend-multiply bg-[length:100%_4px]" />
+        <section className="bg-white py-20 border-y border-black/5 overflow-hidden relative">
+            <div className="absolute inset-0 pattern-grid-light opacity-40" />
+            
+            <div className="container mx-auto px-4 mb-12 relative z-10">
+                <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-gray-400 text-center">
+                    / Надежные поставщики сырья
+                </p>
+            </div>
 
-            <div className="flex gap-16 md:gap-32 animate-marquee whitespace-nowrap items-center">
-                {[...suppliers, ...suppliers, ...suppliers, ...suppliers].map((s, i) => (
-                    <div key={i} className="flex items-center gap-4 shrink-0 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-                        {/* Logo Image */}
-                        <div className="relative w-24 h-12 md:w-32 md:h-16">
-                            <Image
-                                src={s.logo}
-                                alt={s.name}
-                                fill
-                                className="object-contain mix-blend-multiply"
-                            />
+            <div className="marquee-container relative">
+                <div className="flex gap-24 md:gap-48 animate-marquee whitespace-nowrap items-center py-4">
+                    {[...suppliers, ...suppliers, ...suppliers, ...suppliers].map((s, i) => (
+                        <div key={i} className="flex items-center gap-4 shrink-0 opacity-30 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0 scale-90 hover:scale-100 cursor-pointer">
+                            <div className="relative w-32 h-16 md:w-48 md:h-24">
+                                <Image
+                                    src={s.logo}
+                                    alt={s.name}
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );

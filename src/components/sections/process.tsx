@@ -15,47 +15,54 @@ const steps = [
 
 export function Process() {
     return (
-        <Section id="process" className="py-24 bg-aurora-concrete text-aurora-black">
-            <Container>
+        <Section id="process" className="py-32 bg-aurora-concrete text-aurora-black relative overflow-hidden grain-texture">
+            <div className="absolute inset-0 pattern-grid-light opacity-60" />
+
+            <Container className="relative z-10">
                 {/* HEADLINE */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                    <div>
-                        <p className="font-mono text-xs uppercase tracking-widest text-aurora-orange mb-2">/ Процесс</p>
-                        <h2 className="font-display text-4xl md:text-5xl uppercase text-aurora-black leading-tight">
-                            От чертежа <br /> до объекта
+                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
+                    <div className="max-w-2xl">
+                        <p className="font-mono text-xs uppercase tracking-[0.3em] text-aurora-orange mb-6 flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-aurora-orange"></span>
+                            / Производство
+                        </p>
+                        <h2 className="font-display text-[3.5rem] md:text-[5.5rem] uppercase text-aurora-black leading-[0.9] tracking-tight">
+                            Технологический <br /> <span className="text-black/20">Процесс</span>
                         </h2>
                     </div>
-                    <div className="hidden md:block max-w-sm">
-                        <p className="font-mono text-sm text-gray-600 leading-relaxed">
-                            Полный цикл производства позволяет нам контролировать сроки и качество на каждом этапе.
+                    <div className="hidden md:block max-w-xs border-l border-black/10 pl-8 pb-4">
+                        <p className="font-mono text-xs text-gray-500 uppercase tracking-widest leading-relaxed">
+                            Сквозной контроль качества на каждом этапе: от анализа входящей документации до финального монтажа.
                         </p>
                     </div>
                 </div>
 
-                {/* HEAVY INDUSTRIAL GRAD (V5.5) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t-2 border-l-2 border-aurora-black">
+                {/* STEPS GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {steps.map((step) => (
-                        <div key={step.id} className="bg-transparent p-8 border-b-2 border-r-2 border-aurora-black hover:bg-white hover:text-black transition-colors duration-300 group flex flex-col justify-between min-h-[320px]">
-
-                            {/* TOP: Icon & Number */}
-                            <div className="flex justify-between items-start mb-8">
-                                <span className="font-display text-4xl text-aurora-black/10 group-hover:text-aurora-orange transition-colors duration-300">
-                                    {step.id}
-                                </span>
-                                <div className="text-aurora-black group-hover:text-aurora-orange transition-colors">
-                                    <step.icon size={32} strokeWidth={1.5} />
-                                </div>
+                        <div key={step.id} className="group relative p-10 border-b border-r border-black/5 hover:bg-white transition-all duration-500">
+                            {/* Number Overlay */}
+                            <div className="absolute top-8 right-8 font-display text-4xl text-black/5 group-hover:text-aurora-orange/10 transition-colors duration-500">
+                                /{step.id}
+                            </div>
+                            
+                            {/* Icon */}
+                            <div className="mb-10 text-aurora-black group-hover:text-aurora-orange transition-colors duration-500">
+                                <step.icon size={32} strokeWidth={1.2} />
                             </div>
 
-                            {/* BOTTOM: Text */}
+                            {/* Content */}
                             <div>
-                                <h3 className="font-display font-medium text-3xl uppercase text-aurora-black mb-4">
+                                <h3 className="font-display text-2xl uppercase mb-4 text-aurora-black group-hover:translate-x-2 transition-transform duration-500">
                                     {step.title}
                                 </h3>
-                                <p className="font-mono text-sm text-aurora-black/70 leading-relaxed max-w-xs">
+                                <p className="font-mono text-sm text-gray-400 leading-relaxed">
                                     {step.desc}
                                 </p>
                             </div>
+                            
+                            {/* Bottom Indicator */}
+                            <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-aurora-orange group-hover:w-full transition-all duration-700" />
                         </div>
                     ))}
                 </div>

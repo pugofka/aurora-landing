@@ -28,52 +28,63 @@ const projects = [
 
 export function Portfolio() {
     return (
-        <Section id="portfolio" className="bg-aurora-black py-24 text-aurora-white">
-            <Container>
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-                    <div>
-                        <p className="font-mono text-xs uppercase tracking-widest text-aurora-orange mb-2">/ Объекты</p>
-                        <h2 className="text-4xl md:text-5xl font-display uppercase font-medium">
-                            Наши <span className="text-aurora-orange">Проекты</span>
+        <Section id="portfolio" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
+            <div className="absolute inset-0 pattern-grid-dark opacity-30" />
+            
+            <Container className="relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
+                    <div className="max-w-2xl">
+                        <p className="font-mono text-xs uppercase tracking-[0.3em] text-aurora-orange mb-6 flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-aurora-orange"></span>
+                            / Портфолио
+                        </p>
+                        <h2 className="text-[3.5rem] md:text-[5.5rem] font-display uppercase font-medium leading-[0.9] tracking-tight">
+                            Наши <br /><span className="text-white/20">Знаковые</span> <span className="text-aurora-orange">Объекты</span>
                         </h2>
                     </div>
                 </div>
 
-                {/* Industrial Slider (Horizontal Scroll) - Heavy V5.5 */}
-                <div className="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+                {/* Projects Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {projects.map((project) => (
-                        <div key={project.id} className="min-w-[85vw] md:min-w-[45vw] lg:min-w-[30vw] snap-center group select-none">
-                            {/* Image Container - Heavy Border */}
-                            <div className="relative aspect-[4/3] mb-6 overflow-hidden bg-aurora-gray border-2 border-white/10 group-hover:border-aurora-orange/50 transition-colors duration-500">
+                        <div key={project.id} className="group cursor-pointer">
+                            {/* Image Container */}
+                            <div className="relative aspect-[4/5] mb-8 overflow-hidden bg-aurora-gray">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 opacity-60 group-hover:opacity-100"
                                 />
-                                {/* Industrial Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60" />
+                                {/* Industrial Number Overlay */}
+                                <div className="absolute top-6 left-6 font-display text-2xl text-white opacity-40 group-hover:opacity-100 transition-opacity">
+                                    /{project.id}
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-aurora-black to-transparent opacity-40" />
                             </div>
 
                             {/* Content */}
-                            <div className="pr-4 border-l-2 border-white/10 pl-6 group-hover:border-aurora-orange transition-colors duration-300">
-                                <span className="block font-display text-4xl text-white/20 mb-2 group-hover:text-aurora-orange transition-colors">
-                                    {project.id}
-                                </span>
+                            <div className="border-l border-white/10 pl-8 group-hover:border-aurora-orange transition-colors duration-500">
                                 <h3 className="font-display text-2xl uppercase mb-3 text-white">
                                     {project.title}
                                 </h3>
-                                <p className="font-mono text-sm text-aurora-white/50 leading-relaxed max-w-sm">
+                                <p className="font-mono text-xs text-white/40 leading-relaxed uppercase tracking-widest">
                                     {project.desc}
                                 </p>
                             </div>
                         </div>
                     ))}
-
-                    {/* Spacer for padding at the end */}
-                    <div className="min-w-[5vw]" />
                 </div>
 
+                {/* Custom CTA Card inspired by Pugofka */}
+                <div className="mt-32 pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-12">
+                    <p className="font-display text-3xl md:text-4xl uppercase text-white/60 max-w-xl">
+                        Готовы обсудить <span className="text-white">ваш следующий проект?</span>
+                    </p>
+                    <Button className="bg-aurora-orange text-black font-display font-medium text-xl uppercase tracking-widest px-12 py-8 rounded-none hover:bg-white transition-all duration-500 shadow-[8px_8px_0px_0px_rgba(255,61,0,0.2)] hover:shadow-none">
+                        Обсудить проект
+                    </Button>
+                </div>
             </Container>
         </Section>
     );
