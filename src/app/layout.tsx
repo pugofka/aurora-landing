@@ -32,11 +32,10 @@ export default function RootLayout({
         className={`${oswald.variable} ${jetbrainsMono.variable} antialiased bg-aurora-black text-white selection:bg-aurora-orange selection:text-white`}
       >
         <ReactLenis root options={{ 
-          lerp: 0.1, 
-          duration: 1.5, 
+          lerp: 0.12, 
+          duration: 1.2, 
           smoothWheel: true,
-          syncTouch: true,
-          touchMultiplier: 1.5,
+          syncTouch: false, // Use native touch for better performance on old devices
         }}>
           <Noise />
           {children}
