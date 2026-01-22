@@ -17,7 +17,7 @@ export function Header() {
     return (
         <>
             {/* TOP LEFT: LOGO */}
-            <div className="fixed top-4 left-4 md:top-8 md:left-8 z-50 mix-blend-difference">
+            <div className="fixed top-4 left-4 md:top-8 md:left-8 z-50">
                 <Link href="/" className="group block">
                     <Image
                         src="/img/logo.svg"

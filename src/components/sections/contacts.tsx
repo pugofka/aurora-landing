@@ -155,20 +155,6 @@ export function Contacts() {
                         </div>
                     </div>
                 </div>
-
-                {/* Bottom Footer Section */}
-                <div className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div className="flex gap-12 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
-                        <a href="#" className="hover:text-aurora-orange transition-colors">Telegram</a>
-                        <a href="#" className="hover:text-aurora-orange transition-colors">WhatsApp</a>
-                        <a href="#" className="hover:text-aurora-orange transition-colors">ВКонтакте</a>
-                    </div>
-                    <div className="text-right">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-white/40">
-                            © 2008-2026 ЗМК АВРОРА // <span className="text-white/60">All rights reserved</span>
-                        </p>
-                    </div>
-                </div>
             </Container>
         </Section>
     );
