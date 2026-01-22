@@ -43,15 +43,6 @@ export function Header() {
                 </Button>
             </div>
 
-            {/* BOTTOM LEFT: STATUS INDICATORS */}
-            <div className="fixed bottom-8 left-8 z-50 hidden md:flex flex-col gap-2 mix-blend-difference pointer-events-none">
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-aurora-orange animate-pulse" />
-                    <span className="font-mono text-[10px] text-white/60 uppercase tracking-widest">
-                        ПРОИЗВОДСТВО: АКТИВНО
-                    </span>
-                </div>
-            </div>
 
             {/* RIGHT SIDE: VERTICAL NAV (OPTIONAL OR HUD) */}
             <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-8 mix-blend-difference">
