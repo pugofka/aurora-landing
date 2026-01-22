@@ -82,17 +82,23 @@ button {
   100% { transform: translateY(200%); }
 }
 
+.animate-slide-down {
+  animation: slide-down 2s infinite ease-in-out;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-.animate-slide-down {
-  animation: slide-down 2s infinite ease-in-out;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
 }
 
-.animate-marquee {
-  animation: marquee 20s linear infinite;
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+  }
 }
 
 .marquee-container {

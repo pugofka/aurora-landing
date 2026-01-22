@@ -56,14 +56,14 @@ export function Contacts() {
                         <span className="w-8 h-[1px] bg-aurora-orange"></span>
                         / Контакты
                     </p>
-                    <h2 className="font-display text-[3.5rem] md:text-[6rem] uppercase text-white leading-[0.9] tracking-tight">
+                    <h2 className="font-display text-[2rem] sm:text-[3.5rem] md:text-[6rem] uppercase text-white leading-[0.9] tracking-tight">
                         Обсудить <br /> <span className="text-white/10">Ваш Проект</span>
                     </h2>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* LEFT: FORM (Clean Dark Card Style) */}
-                    <div className="lg:col-span-7 bg-black/40 p-10 md:p-16 border border-white/5 backdrop-blur-sm shadow-2xl">
+                    <div className="lg:col-span-7 bg-black/40 p-6 sm:p-10 md:p-16 border border-white/5 backdrop-blur-sm shadow-2xl">
                         {status === 'success' ? (
                             <div className="h-[400px] flex flex-col justify-center items-center text-center space-y-6">
                                 <div className="w-20 h-20 bg-aurora-orange/20 border border-aurora-orange rounded-full flex items-center justify-center">

@@ -38,7 +38,7 @@ export function Portfolio() {
                             <span className="w-8 h-[1px] bg-aurora-orange"></span>
                             / Портфолио
                         </p>
-                        <h2 className="text-[2.5rem] sm:text-[3.5rem] md:text-[5.5rem] font-display uppercase font-medium leading-[0.9] tracking-tight">
+                        <h2 className="text-[2rem] sm:text-[3.5rem] md:text-[5.5rem] font-display uppercase font-medium leading-[0.9] tracking-tight">
                             Наши <br /><span className="text-white/20">Знаковые</span> <span className="text-aurora-orange">Объекты</span>
                         </h2>
                     </div>
@@ -65,7 +65,7 @@ export function Portfolio() {
 
                             {/* Content */}
                             <div className="border-l border-white/10 pl-8 group-hover:border-aurora-orange transition-colors duration-500">
-                                <h3 className="font-display text-2xl uppercase mb-3 text-white">
+                                <h3 className="font-display text-xl sm:text-2xl uppercase mb-3 text-white">
                                     {project.title}
                                 </h3>
                                 <p className="font-mono text-xs text-white/40 leading-relaxed uppercase tracking-widest">
@@ -82,7 +82,7 @@ export function Portfolio() {
                         Готовы обсудить <span className="text-white">ваш следующий проект?</span>
                     </p>
                     <Button 
-                        className="bg-aurora-orange text-white font-display font-medium text-xl uppercase tracking-widest px-12 py-8 rounded-none hover:bg-white transition-all duration-500 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none cursor-pointer"
+                        className="w-full md:w-auto bg-aurora-orange text-white font-display font-medium text-lg sm:text-xl uppercase tracking-widest px-8 sm:px-12 py-6 sm:py-8 rounded-none hover:bg-white transition-all duration-500 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none cursor-pointer"
                         onClick={() => {
                             const el = document.querySelector('#contacts');
                             if (el) el.scrollIntoView({ behavior: 'smooth' });

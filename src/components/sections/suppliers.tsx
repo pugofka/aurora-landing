@@ -24,8 +24,8 @@ export function Suppliers() {
             </div>
 
             <div className="marquee-container relative">
-                <div className="flex gap-24 md:gap-48 animate-marquee whitespace-nowrap items-center py-4">
-                    {[...suppliers, ...suppliers, ...suppliers, ...suppliers].map((s, i) => (
+                <div className="flex gap-12 md:gap-48 animate-marquee whitespace-nowrap items-center py-4">
+                    {[...suppliers, ...suppliers, ...suppliers, ...suppliers, ...suppliers, ...suppliers].map((s, i) => (
                         <div key={i} className="flex items-center gap-4 shrink-0 opacity-30 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0 scale-90 hover:scale-100">
                             <div className="relative w-32 h-16 md:w-48 md:h-24">
                                 <Image

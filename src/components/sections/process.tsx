@@ -26,7 +26,7 @@ export function Process() {
                             <span className="w-8 h-[1px] bg-aurora-orange"></span>
                             / Производство
                         </p>
-                        <h2 className="font-display text-[2.5rem] sm:text-[3.5rem] md:text-[5.5rem] uppercase text-aurora-black leading-[0.9] tracking-tight">
+                        <h2 className="font-display text-[1.75rem] sm:text-[3.5rem] md:text-[5.5rem] uppercase text-aurora-black leading-[0.9] tracking-tight">
                             Технологический <br /> <span className="text-black/20">Процесс</span>
                         </h2>
                     </div>
@@ -53,7 +53,7 @@ export function Process() {
 
                             {/* Content */}
                             <div>
-                                <h3 className="font-display text-2xl uppercase mb-4 text-aurora-black group-hover:text-black group-hover:translate-x-2 transition-all duration-500">
+                                <h3 className="font-display text-xl sm:text-2xl uppercase mb-4 text-aurora-black group-hover:text-black group-hover:translate-x-2 transition-all duration-500">
                                     {step.title}
                                 </h3>
                                 <p className="font-mono text-sm text-gray-400 group-hover:text-black/80 leading-relaxed transition-colors duration-500">

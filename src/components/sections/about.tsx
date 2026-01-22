@@ -35,7 +35,7 @@ export function About() {
                         <span className="w-8 h-[1px] bg-aurora-orange"></span>
                         / О компании
                     </p>
-                    <h2 className="font-display font-medium text-[2.5rem] sm:text-[3.5rem] md:text-[6rem] leading-[0.9] uppercase max-w-4xl tracking-tight">
+                    <h2 className="font-display font-medium text-[1.75rem] sm:text-[3.5rem] md:text-[6rem] leading-[0.9] uppercase max-w-4xl tracking-tight">
                         Архитекторы <br />
                         <span className="text-white/20">индустриального</span> <br />
                         <span className="text-aurora-orange">роста.</span>
@@ -51,8 +51,8 @@ export function About() {
                         </p>
                     </div>
 
-                    {/* Right: Steps/Benefits in Pugofka Style */}
-                    <div className="lg:col-span-6 lg:col-start-7 space-y-16">
+                        {/* Right: Steps/Benefits in Pugofka Style */}
+                    <div className="lg:col-span-6 lg:col-start-7 space-y-12 md:space-y-16">
                         {[
                             {
                                 id: '01',
@@ -71,13 +71,13 @@ export function About() {
                             }
                         ].map((item) => (
                             <div key={item.id} className="group">
-                                <div className="flex items-baseline gap-6 border-b border-white/10 pb-8 group-hover:border-aurora-orange transition-colors duration-500">
-                                    <span className="font-mono text-xl text-aurora-orange">/{item.id}</span>
+                                <div className="flex items-baseline gap-4 sm:gap-6 border-b border-white/10 pb-8 group-hover:border-aurora-orange transition-colors duration-500">
+                                    <span className="font-mono text-lg sm:text-xl text-aurora-orange shrink-0">/{item.id}</span>
                                     <div>
-                                        <h4 className="font-display text-2xl uppercase mb-4 text-white group-hover:text-aurora-orange transition-colors duration-500">
+                                        <h4 className="font-display text-lg sm:text-2xl uppercase mb-4 text-white group-hover:text-aurora-orange transition-colors duration-500 leading-tight">
                                             {item.title}
                                         </h4>
-                                        <p className="font-mono text-sm text-white/40 leading-relaxed max-w-md">
+                                        <p className="font-mono text-xs sm:text-sm text-white/40 leading-relaxed max-w-md">
                                             {item.desc}
                                         </p>
                                     </div>

@@ -22,21 +22,24 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-8 w-full">
-              <div className="flex gap-12 font-mono text-[10px] uppercase tracking-[0.3em] text-white/60">
+              <div className="flex flex-wrap gap-x-8 gap-y-4 font-mono text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-white/60">
                 <a href="#" className="hover:text-aurora-orange transition-colors">Telegram</a>
                 <a href="#" className="hover:text-aurora-orange transition-colors">WhatsApp</a>
                 <a href="#" className="hover:text-aurora-orange transition-colors">ВКонтакте</a>
               </div>
               
-              <div className="flex items-start gap-8">
-                <Image 
-                  src="/img/pugofka.svg" 
-                  alt="Pugofka" 
-                  width={80} 
-                  height={80} 
-                  className="mt-1 opacity-40 grayscale brightness-200 shrink-0"
-                />
-                <div className="space-y-4 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] leading-relaxed text-white/50">
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="flex flex-col gap-2">
+                  <p className="font-mono text-[8px] uppercase tracking-widest text-white/30 mb-2">Разработка сайта</p>
+                  <Image 
+                    src="/img/pugofka.svg" 
+                    alt="Pugofka" 
+                    width={120} 
+                    height={120} 
+                    className="opacity-40 grayscale brightness-200 shrink-0 -ml-2"
+                  />
+                </div>
+                <div className="space-y-4 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] leading-relaxed text-white/50 max-w-4xl">
                   <p>
                     © 2008-2026 ЗМК АВРОРА // Все права защищены. Копирование информации преследуется по закону. Статья 146 УК РФ.
                   </p>

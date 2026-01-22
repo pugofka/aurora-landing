@@ -49,7 +49,7 @@ export function Hero() {
                     {/* CENTER */}
                     <div className="col-span-12 md:col-span-8 flex flex-col justify-center items-center text-center">
                         <div className="relative z-30">
-                            <h2 className="font-display font-bold text-4xl sm:text-6xl md:text-[10rem] w-full uppercase leading-[0.75] tracking-tighter mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                            <h2 className="font-display font-bold text-3xl sm:text-6xl md:text-[10rem] w-full uppercase leading-[0.8] tracking-tighter mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                                 ЗАВОД <br />
                                 <span className="text-aurora-orange">МЕТАЛЛО</span><br />
                                 <span className="text-white">КОНСТРУКЦИЙ</span>
@@ -57,7 +57,7 @@ export function Hero() {
                         </div>
 
                         <div className="flex flex-col items-center gap-8 mt-12 relative z-30">
-                            <p className="font-display text-lg sm:text-xl md:text-3xl text-white/80 max-w-2xl text-center uppercase tracking-tight leading-tight px-4">
+                            <p className="font-display text-base sm:text-xl md:text-3xl text-white/80 max-w-2xl text-center uppercase tracking-tight leading-tight px-4">
                                 Проектируем и производим <br /> 
                                 <span className="text-white font-bold">несущие конструкции</span> для лидеров рынка
                             </p>
@@ -83,14 +83,14 @@ export function Hero() {
 
                     <div className="w-full md:w-auto">
                         <Button
-                            className="w-full md:w-auto bg-aurora-orange text-white font-display font-bold text-2xl uppercase tracking-widest px-12 py-8 rounded-none border-2 border-transparent hover:bg-black hover:text-aurora-orange hover:border-aurora-orange transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none translate-x-0 hover:translate-x-[4px] hover:translate-y-[4px] cursor-pointer"
+                            className="w-full md:w-auto bg-aurora-orange text-white font-display font-bold text-lg sm:text-2xl uppercase tracking-widest px-8 sm:px-12 py-6 sm:py-8 rounded-none border-2 border-transparent hover:bg-black hover:text-aurora-orange hover:border-aurora-orange transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none translate-x-0 hover:translate-x-[4px] hover:translate-y-[4px] cursor-pointer"
                             onClick={() => {
                                 const el = document.querySelector('#contacts');
                                 if (el) el.scrollIntoView({ behavior: 'smooth' });
                             }}
                         >
-                            <span className="mr-4">РАССЧИТАТЬ ПРОЕКТ</span>
-                            <ArrowDown className="text-current rotate-[-135deg]" size={24} />
+                            <span className="mr-4 text-base sm:text-2xl">РАССЧИТАТЬ ПРОЕКТ</span>
+                            <ArrowDown className="text-current rotate-[-135deg]" size={20} />
                         </Button>
                     </div>
                 </div>

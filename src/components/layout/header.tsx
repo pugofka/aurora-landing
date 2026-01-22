@@ -30,10 +30,10 @@ export function Header() {
             </div>
 
             {/* TOP RIGHT: MENU TRIGGER (HAMBURGER REPLACEMENT) */}
-            <div className="fixed bottom-4 right-4 md:top-8 md:right-8 z-50 mix-blend-difference">
+            <div className="fixed bottom-4 right-4 md:top-8 md:right-8 z-50">
                 <Button 
                     variant="ghost" 
-                    className="text-white font-mono text-[10px] md:text-xs uppercase tracking-widest border border-white/20 hover:bg-white hover:text-black hover:border-white transition-colors h-10 md:h-10 px-6 md:px-6 rounded-none cursor-pointer bg-black/20 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none"
+                    className="text-white font-mono text-[10px] md:text-xs uppercase tracking-widest border border-white/20 hover:bg-white hover:text-black hover:border-white transition-colors h-10 md:h-10 px-6 md:px-6 rounded-none cursor-pointer bg-black/40 backdrop-blur-md md:bg-transparent md:backdrop-blur-none"
                     onClick={(e) => {
                         const el = document.querySelector('#contacts');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
