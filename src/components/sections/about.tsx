@@ -25,7 +25,7 @@ export function About() {
     const y2 = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
     return (
-        <Section id="about" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
+        <Section id="about" data-theme="dark" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
             <div className="absolute inset-0 pattern-grid-dark opacity-50" />
             
             <Container ref={containerRef} className="relative z-10">

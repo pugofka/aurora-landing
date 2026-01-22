@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export function Hero() {
     return (
-        <Section id="hero" className="h-screen min-h-[600px] md:min-h-[800px] relative overflow-hidden bg-aurora-black text-white">
+        <Section id="hero" data-theme="dark" className="h-screen min-h-[600px] md:min-h-[800px] relative overflow-hidden bg-aurora-black text-white">
 
             {/* 1. BACKGROUND */}
             <div className="absolute inset-0 z-0">
@@ -53,7 +53,7 @@ export function Hero() {
                     </div>
 
                     {/* CENTER */}
-                    <div className="col-span-12 md:col-span-8 flex flex-col justify-center items-center text-center">
+                    <div className="col-span-12 md:col-span-8 flex flex-col justify-center items-start md:items-center text-left md:text-center">
                         <div className="relative z-30">
                             <h2 className="font-display font-bold text-3xl sm:text-6xl md:text-[10rem] w-full uppercase leading-[0.8] tracking-tighter mb-8 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                                 ЗАВОД <br />
@@ -62,8 +62,8 @@ export function Hero() {
                             </h2>
                         </div>
 
-                        <div className="flex flex-col items-center gap-8 mt-12 relative z-30">
-                            <p className="font-display text-lg sm:text-2xl md:text-3xl text-white/80 max-w-2xl text-center uppercase tracking-tight leading-tight px-4">
+                        <div className="flex flex-col items-start md:items-center gap-8 mt-12 relative z-30">
+                            <p className="font-display text-lg sm:text-2xl md:text-3xl text-white/80 max-w-2xl text-left md:text-center uppercase tracking-tight leading-tight px-0 md:px-4">
                                 Проектируем и производим <br /> 
                                 <span className="text-white font-bold">несущие конструкции</span> для лидеров рынка
                             </p>

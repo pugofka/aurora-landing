@@ -31,9 +31,16 @@ export default function RootLayout({
       <body
         className={`${oswald.variable} ${jetbrainsMono.variable} antialiased bg-aurora-black text-white selection:bg-aurora-orange selection:text-white`}
       >
-        {/* Standard scrolling as per V4 request */}
-        <Noise />
-        {children}
+        <ReactLenis root options={{ 
+          lerp: 0.1, 
+          duration: 1.5, 
+          smoothWheel: true,
+          syncTouch: true,
+          touchMultiplier: 1.5,
+        }}>
+          <Noise />
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );

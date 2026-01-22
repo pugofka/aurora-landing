@@ -14,7 +14,7 @@ const suppliers = [
 
 export function Suppliers() {
     return (
-        <section className="bg-white py-20 border-y border-black/5 overflow-hidden relative">
+        <section data-theme="light" className="bg-white py-20 border-y border-black/5 overflow-hidden relative">
             <div className="absolute inset-0 pattern-grid-light opacity-40" />
             
             <div className="container mx-auto px-4 mb-12 relative z-10">

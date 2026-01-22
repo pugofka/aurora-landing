@@ -28,11 +28,11 @@ const projects = [
 
 export function Portfolio() {
     return (
-        <Section id="portfolio" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
+        <Section id="portfolio" data-theme="dark" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
             <div className="absolute inset-0 pattern-grid-dark opacity-30" />
             
             <Container className="relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12 pt-12 md:pt-0">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-12 pt-12 md:pt-0">
                     <div className="max-w-2xl">
                         <p className="font-mono text-sm uppercase tracking-[0.3em] text-aurora-orange mb-6 flex items-center gap-4">
                             <span className="w-8 h-[1px] bg-aurora-orange"></span>

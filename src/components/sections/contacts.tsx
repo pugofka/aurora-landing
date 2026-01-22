@@ -80,7 +80,7 @@ export function Contacts() {
     };
 
     return (
-        <Section id="contacts" className="bg-aurora-gray text-aurora-white pt-32 pb-20 relative overflow-hidden grain-texture">
+        <Section id="contacts" data-theme="dark" className="bg-aurora-gray text-aurora-white pt-32 pb-20 relative overflow-hidden grain-texture">
             <div className="absolute inset-0 pattern-grid-dark opacity-40" />
             
             <Container className="relative z-10">
