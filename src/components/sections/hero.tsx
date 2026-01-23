@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export function Hero() {
     return (
-        <Section id="hero" data-theme="dark" className="h-screen min-h-[600px] md:min-h-[800px] relative overflow-hidden bg-aurora-black text-white">
+        <Section id="hero" data-theme="dark" className="h-screen h-[100svh] min-h-[600px] md:min-h-[800px] relative overflow-hidden bg-aurora-black text-white">
 
             {/* 1. BACKGROUND */}
             <div className="absolute inset-0 z-0">

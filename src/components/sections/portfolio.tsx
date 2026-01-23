@@ -74,7 +74,7 @@ function Modal({ project, initialIndex, onClose }: { project: typeof projects[0]
             </button>
             
             <div className="relative w-full h-full flex items-center justify-center p-4 md:p-24" onClick={e => e.stopPropagation()}>
-                <div className="relative w-full h-full max-h-[80vh] aspect-video">
+                <div className="relative w-full h-full max-h-[80vh] max-h-[80svh] aspect-video">
                     <Image
                         src={project.images[index]}
                         alt={project.title}

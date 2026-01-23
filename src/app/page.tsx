@@ -9,7 +9,7 @@ import { Contacts } from "@/components/sections/contacts";
 
 export default function Home() {
   return (
-    <main className="relative bg-aurora-black min-h-screen">
+    <main className="relative bg-aurora-black min-h-screen min-h-[100svh]">
       <Header />
       <Hero />
       <About />
