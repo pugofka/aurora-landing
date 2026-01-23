@@ -37,8 +37,7 @@ export function About() {
                     </p>
                     <h2 className="font-display font-medium text-[1.75rem] sm:text-[3.5rem] md:text-[6rem] leading-[0.9] uppercase max-w-4xl tracking-tight">
                         Завод <br />
-                        <span className="text-white/20">металло</span> <br />
-                        <span className="text-aurora-orange">конструкций</span>
+                        <span className="text-aurora-orange whitespace-nowrap">металлоконструкций</span>
                     </h2>
                 </div>
 

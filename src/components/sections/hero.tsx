@@ -67,7 +67,7 @@ export function Hero() {
                         <div className="flex flex-col items-start md:items-center gap-8 mt-12 relative z-30">
                             <p className="font-display text-lg sm:text-2xl md:text-3xl text-white/80 max-w-2xl text-left md:text-center uppercase tracking-tight leading-tight px-0 md:px-4">
                                 Проектируем и производим <br /> 
-                                <span className="text-white font-bold">металлоконструкции</span> для лидеров рынка
+                                <span className="text-white font-bold whitespace-nowrap">металлоконструкции</span> для лидеров рынка
                             </p>
                         </div>
                     </div>
