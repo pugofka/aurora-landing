@@ -11,13 +11,15 @@ export function Hero() {
 
             {/* 1. BACKGROUND */}
             <div className="absolute inset-0 z-0">
-                <Image
-                    src="/img/hero-bg.png"
-                    alt="Industrial Void"
-                    fill
-                    className="object-cover opacity-60 grayscale"
-                    priority
-                />
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale"
+                >
+                    <source src="/video/Анимация_искр_на_статичном_изображении.mp4" type="video/mp4" />
+                </video>
                 <div className="absolute inset-0 bg-aurora-black/40 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-[url('/img/noise-texture.png')] opacity-20 mix-blend-overlay" />
             </div>
