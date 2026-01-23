@@ -12,9 +12,9 @@ const projects = [
         id: '01',
         title: 'Верстаки / Хранение',
         images: [
-            '/img/projects/project1/photo_2026-01-23 17.04.45.jpeg',
+            '/img/projects/project1/photo_2026-01-23 17.05.17.jpeg',
             '/img/projects/project1/photo_2026-01-23 17.05.13.jpeg',
-            '/img/projects/project1/photo_2026-01-23 17.05.17.jpeg'
+            '/img/projects/project1/photo_2026-01-23 17.04.45.jpeg'
         ],
         video: null,
         desc: 'Проектирование и изготовление модульных систем хранения.'
@@ -24,8 +24,8 @@ const projects = [
         title: 'Блочно-модульные здания',
         images: [
             '/img/projects/project2/photo_2026-01-23 17.05.42.jpeg',
-            '/img/projects/project2/photo_2026-01-23 17.05.54.jpeg',
-            '/img/projects/project2/photo_2026-01-23 17.05.56.jpeg'
+            '/img/projects/project2/photo_2026-01-23 17.05.56.jpeg',
+            '/img/projects/project2/photo_2026-01-23 17.05.54.jpeg'
         ],
         video: null,
         desc: 'Производство контейнерных блоков с полной отделкой.'
