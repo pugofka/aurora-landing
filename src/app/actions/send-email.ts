@@ -8,6 +8,54 @@ export async function sendEmail(formData: FormData) {
     const message = formData.get('message') as string;
     const files = formData.getAll('files') as File[];
 
+    const ALLOWED_EXTENSIONS = ['.pdf', '.jpg', '.jpeg', '.png', '.webp', '.doc', '.docx', '.xls', '.xlsx', '.dwg', '.dxf'];
+    const ALLOWED_MIME_TYPES = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'image/vnd.dwg',
+        'application/acad',
+        'application/x-dwg',
+        'image/vnd.dxf',
+        'application/dxf',
+        'application/x-dxf',
+        'application/octet-stream' // DWG files often come as octet-stream
+    ];
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+
+    // Server-side validation
+    for (const file of files) {
+        if (file.size > 0) {
+            // 1. Size validation
+            if (file.size > MAX_FILE_SIZE) {
+                return { success: false, error: `Файл ${file.name} превышает лимит 10МБ` };
+            }
+
+            // 2. Extension validation
+            const extension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+            if (!ALLOWED_EXTENSIONS.includes(extension)) {
+                return { success: false, error: `Недопустимый формат файла: ${file.name}` };
+            }
+
+            // 3. MIME type validation
+            if (!ALLOWED_MIME_TYPES.includes(file.type)) {
+                // For CAD files, we might be more lenient if the extension is correct, 
+                // but for general security, we check common types.
+                if (file.type !== '') {
+                   // Allow if it's a known extension even if MIME is weird (common for CAD)
+                   if (!ALLOWED_EXTENSIONS.includes(extension)) {
+                       return { success: false, error: `Недопустимый тип контента: ${file.type}` };
+                   }
+                }
+            }
+        }
+    }
+
     // Mailtrap configuration
     const transporter = nodemailer.createTransport({
         host: process.env.MAILTRAP_HOST || 'sandbox.smtp.mailtrap.io',

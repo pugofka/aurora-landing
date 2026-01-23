@@ -15,14 +15,52 @@ export function Contacts() {
     const [selectedFiles, setSelectedFiles] = React.useState<File[]>([]);
     const fileInputRef = React.useRef<HTMLInputElement>(null);
 
+    const ALLOWED_EXTENSIONS = ['.pdf', '.jpg', '.jpeg', '.png', '.webp', '.doc', '.docx', '.xls', '.xlsx', '.dwg', '.dxf'];
+    const ALLOWED_MIME_TYPES = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        'image/vnd.dwg',
+        'application/acad',
+        'application/x-dwg',
+        'image/vnd.dxf',
+        'application/dxf',
+        'application/x-dxf',
+        'application/octet-stream'
+    ];
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             const newFiles = Array.from(e.target.files);
             const validFiles = newFiles.filter(file => {
-                if (file.size > 10 * 1024 * 1024) { // 10MB limit
+                // 1. Size check
+                if (file.size > MAX_FILE_SIZE) {
                     alert(`Файл ${file.name} слишком большой. Максимальный размер — 10МБ.`);
                     return false;
                 }
+                
+                // 2. Extension check
+                const extension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+                if (!ALLOWED_EXTENSIONS.includes(extension)) {
+                    alert(`Файл ${file.name} имеет недопустимый формат. Разрешены: ${ALLOWED_EXTENSIONS.join(', ')}`);
+                    return false;
+                }
+
+                // 3. MIME type check
+                if (file.type && !ALLOWED_MIME_TYPES.includes(file.type)) {
+                    // Additional check for CAD which often has no MIME or is octet-stream
+                    if (!['.dwg', '.dxf'].includes(extension)) {
+                        alert(`Файл ${file.name} имеет недопустимый тип содержимого.`);
+                        return false;
+                    }
+                }
+
                 return true;
             });
             setSelectedFiles(prev => [...prev, ...validFiles]);
@@ -170,7 +208,12 @@ export function Contacts() {
                                 </div>
 
                                 <div className="space-y-6">
-                                    <label className="block font-mono text-xs uppercase tracking-[0.3em] text-white">04_Прикрепить файлы</label>
+                                    <label className="block font-mono text-xs uppercase tracking-[0.3em] text-white">
+                                        04_Прикрепить файлы
+                                        <span className="block mt-1 text-[10px] text-white/30 tracking-widest lowercase">
+                                            (pdf, jpg, png, docx, xlsx, dwg до 10мб)
+                                        </span>
+                                    </label>
                                     <div className="flex flex-wrap gap-4">
                                         <button
                                             type="button"
@@ -184,6 +227,7 @@ export function Contacts() {
                                             type="file" 
                                             name="files"
                                             multiple
+                                            accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx,.xls,.xlsx,.dwg,.dxf"
                                             className="hidden" 
                                             ref={fileInputRef}
                                             onChange={handleFileChange}
