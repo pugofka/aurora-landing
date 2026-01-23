@@ -6,29 +6,6 @@
   --foreground: #F5F5F5;
 }
 
-html {
-  font-size: clamp(10px, 0.45vw + 0.5px, 12px);
-}
-
-@media (max-width: 1024px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1920px) {
-  html {
-    font-size: 16px;
-  }
-}
- 
-
 @theme {
   --color-aurora-orange: color-mix(in oklab, var(--color-primary) 75%, transparent);
   /* Molten Orange with transparency mix */

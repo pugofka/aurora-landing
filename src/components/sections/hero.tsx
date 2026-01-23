@@ -16,7 +16,7 @@ export function Hero() {
                     muted
                     loop
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale scale-105"
                 >
                     <source src="/video/Анимация_искр_на_статичном_изображении.mp4" type="video/mp4" />
                 </video>

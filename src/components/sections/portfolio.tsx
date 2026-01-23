@@ -157,7 +157,7 @@ function ProjectCard({ project, onOpenModal }: { project: typeof projects[0], on
                             loop
                             playsInline
                             preload="none"
-                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 scale-105 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
                         >
                             <source src={project.video} type="video/mp4" />
                         </video>
