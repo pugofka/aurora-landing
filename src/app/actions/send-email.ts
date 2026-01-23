@@ -18,6 +18,13 @@ export async function sendEmail(formData: FormData) {
         },
     });
 
+    if (!process.env.MAILTRAP_USER || !process.env.MAILTRAP_PASS) {
+        return { 
+            success: false, 
+            error: 'Отсутствуют настройки почтового сервера (MAILTRAP_USER/PASS). Пожалуйста, добавьте их в переменные окружения Vercel.' 
+        };
+    }
+
     const attachments = await Promise.all(
         files
             .filter((file) => file.size > 0)

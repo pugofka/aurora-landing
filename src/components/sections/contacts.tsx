@@ -10,6 +10,7 @@ import { sendEmail } from '@/app/actions/send-email';
 
 export function Contacts() {
     const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = React.useState('');
     const [phone, setPhone] = React.useState('');
     const [selectedFiles, setSelectedFiles] = React.useState<File[]>([]);
     const fileInputRef = React.useRef<HTMLInputElement>(null);
@@ -76,6 +77,7 @@ export function Contacts() {
             setSelectedFiles([]); // Reset files on success
         } else {
             setStatus('error');
+            setErrorMessage(result.error || '');
         }
     };
 
@@ -119,7 +121,7 @@ export function Contacts() {
                             <div className="h-[400px] flex flex-col justify-center items-center text-center space-y-6">
                                 <h3 className="font-display text-3xl uppercase text-red-500">Ошибка отправки</h3>
                                 <p className="font-mono text-sm text-white/40 max-w-xs">
-                                    К сожалению, произошла ошибка. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.
+                                    {errorMessage || 'К сожалению, произошла ошибка. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.'}
                                 </p>
                                 <Button 
                                     variant="ghost" 
