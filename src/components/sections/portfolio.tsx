@@ -38,7 +38,7 @@ const projects = [
             '/img/projects/project3/photo_2026-01-23 15.03.17.jpeg'
         ],
         video: null,
-        desc: ''
+        desc: 'Аэродром п. Левашово'
     },
 ];
 
