@@ -6,7 +6,7 @@
   --foreground: #F5F5F5;
 }
 
-/* html {
+html {
   font-size: clamp(10px, 0.45vw + 0.5px, 12px);
 }
 
@@ -20,7 +20,14 @@
   html {
     font-size: 14px;
   }
-} */
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+}
+ 
 
 @theme {
   --color-aurora-orange: color-mix(in oklab, var(--color-primary) 75%, transparent);
