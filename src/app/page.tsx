@@ -22,12 +22,6 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-8 w-full">
-              <div className="flex flex-wrap gap-x-8 gap-y-4 font-mono text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-white/60">
-                <a href="#" className="hover:text-aurora-orange transition-colors">Telegram</a>
-                <a href="#" className="hover:text-aurora-orange transition-colors">WhatsApp</a>
-                <a href="#" className="hover:text-aurora-orange transition-colors">ВКонтакте</a>
-              </div>
-              
               <div className="flex flex-col md:flex-row items-start gap-8">
                 <div className="flex flex-col gap-2">
                   <a 
