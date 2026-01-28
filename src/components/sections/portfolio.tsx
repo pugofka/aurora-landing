@@ -40,6 +40,17 @@ const projects = [
         video: null,
         desc: 'Аэродром п. Левашово'
     },
+    {
+        id: '04',
+        title: 'Складской комплекс ТБО. п. Порошкино',
+        images: [
+            '/img/projects/project4/2026-01-28 15.10.50.jpg',
+            '/img/projects/project4/2026-01-28 15.11.35.jpg',
+            '/img/projects/project4/2026-01-28 15.11.42.jpg'
+        ],
+        video: null,
+        desc: 'Складской комплекс для твёрдых бытовых отходов'
+    },
 ];
 
 function Modal({ project, initialIndex, onClose }: { project: typeof projects[0], initialIndex: number, onClose: () => void }) {
@@ -231,11 +242,63 @@ function ProjectCard({ project, onOpenModal }: { project: typeof projects[0], on
 
 export function Portfolio() {
     const [activeProject, setActiveProject] = useState<{project: typeof projects[0], index: number} | null>(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [slidesPerView, setSlidesPerView] = useState(3);
+    const sliderRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const updateSlidesPerView = () => {
+            if (window.innerWidth < 768) {
+                setSlidesPerView(1);
+            } else if (window.innerWidth < 1024) {
+                setSlidesPerView(2);
+            } else {
+                setSlidesPerView(3);
+            }
+        };
+
+        updateSlidesPerView();
+        window.addEventListener('resize', updateSlidesPerView);
+        return () => window.removeEventListener('resize', updateSlidesPerView);
+    }, []);
+
+    const maxSlide = Math.max(0, projects.length - slidesPerView);
+
+    useEffect(() => {
+        if (currentSlide > maxSlide) {
+            setCurrentSlide(maxSlide);
+        }
+    }, [maxSlide, currentSlide]);
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => Math.min(prev + 1, maxSlide));
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => Math.max(prev - 1, 0));
+    };
+
+    const canGoNext = currentSlide < maxSlide;
+    const canGoPrev = currentSlide > 0;
+
+    const getTransformValue = () => {
+        const gap = 32; // gap-8 = 32px
+        if (slidesPerView === 1) {
+            // На мобильном: ширина карточки 100% + gap
+            return `translateX(calc(-${currentSlide} * (100% + ${gap}px)))`;
+        }
+        if (slidesPerView === 2) {
+            // На планшете: ширина карточки 50% - половина gap
+            return `translateX(calc(-${currentSlide} * (50% + ${gap / 2}px)))`;
+        }
+        // На десктопе: ширина карточки 33.333% - часть gap
+        return `translateX(calc(-${currentSlide} * (33.333% + ${gap / 3}px)))`;
+    };
 
     return (
         <Section id="portfolio" data-theme="dark" className="py-32 bg-aurora-black text-aurora-white relative overflow-hidden grain-texture">
             <div className="absolute inset-0 pattern-grid-dark opacity-30" />
-            
+
             <Container className="relative">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-12 pt-12 md:pt-0">
                     <div className="max-w-2xl">
@@ -247,17 +310,55 @@ export function Portfolio() {
                             Наши <span className="text-aurora-orange">Работы</span>
                         </h2>
                     </div>
+
+                    {/* Slider Navigation */}
+                    {maxSlide > 0 && (
+                        <div className="flex items-center gap-4">
+                            <button
+                                onClick={prevSlide}
+                                disabled={!canGoPrev}
+                                className={`w-12 h-12 border border-white/20 text-white flex items-center justify-center transition-all duration-300 ${
+                                    canGoPrev ? 'hover:border-aurora-orange hover:bg-aurora-orange cursor-pointer' : 'opacity-30 cursor-not-allowed'
+                                }`}
+                                aria-label="Previous projects"
+                            >
+                                <ChevronLeft size={24} />
+                            </button>
+                            <button
+                                onClick={nextSlide}
+                                disabled={!canGoNext}
+                                className={`w-12 h-12 border border-white/20 text-white flex items-center justify-center transition-all duration-300 ${
+                                    canGoNext ? 'hover:border-aurora-orange hover:bg-aurora-orange cursor-pointer' : 'opacity-30 cursor-not-allowed'
+                                }`}
+                                aria-label="Next projects"
+                            >
+                                <ChevronRight size={24} />
+                            </button>
+                        </div>
+                    )}
                 </div>
 
-                {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                    {projects.map((project) => (
-                        <ProjectCard 
-                            key={project.id} 
-                            project={project} 
-                            onOpenModal={(index) => setActiveProject({ project, index })}
-                        />
-                    ))}
+                {/* Projects Slider */}
+                <div className="relative overflow-hidden -mx-4 px-4">
+                    <div
+                        ref={sliderRef}
+                        className="flex transition-transform duration-700 ease-out gap-8"
+                        style={{
+                            transform: getTransformValue()
+                        }}
+                    >
+                        {projects.map((project) => (
+                            <div
+                                key={project.id}
+                                className="w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-21.333px)] flex-shrink-0"
+                            >
+                                <ProjectCard
+                                    project={project}
+                                    onOpenModal={(index) => setActiveProject({ project, index })}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Custom CTA Card inspired by Pugofka */}
@@ -265,7 +366,7 @@ export function Portfolio() {
                     <p className="font-display text-3xl md:text-4xl uppercase text-white/60 max-w-xl">
                         Готовы обсудить <span className="text-white">ваш следующий проект?</span>
                     </p>
-                    <Button 
+                    <Button
                         className="w-full md:w-auto bg-aurora-orange text-white font-display font-medium text-lg sm:text-xl uppercase tracking-widest px-8 sm:px-12 py-6 sm:py-8 rounded-none hover:bg-white transition-all duration-500 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:shadow-none cursor-pointer"
                         onClick={() => {
                             const el = document.querySelector('#contacts');
@@ -278,10 +379,10 @@ export function Portfolio() {
             </Container>
 
             {activeProject && (
-                <Modal 
-                    project={activeProject.project} 
-                    initialIndex={activeProject.index} 
-                    onClose={() => setActiveProject(null)} 
+                <Modal
+                    project={activeProject.project}
+                    initialIndex={activeProject.index}
+                    onClose={() => setActiveProject(null)}
                 />
             )}
         </Section>
